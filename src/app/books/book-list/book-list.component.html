@@ -1,0 +1,27 @@
+<h3>Books</h3>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-primary">
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="hoverTable">
+        <tr>
+            <td colspan="5" class="alert alert-danger" *ngIf="error$ | async as error">{{error}}</td>
+        </tr>
+        <tr>
+            <tr *ngFor="let book of (books$ |async)">
+                <th scope="row">{{book.name}}</th>
+                <td>{{book.description}}</td>
+                <td>{{book.category}}</td>
+                <th id="edit-data" *ngIf='isAuthenticated'>
+                    <a (click)=editBook(book)>edit</a>
+                    <br>
+                    <a (click)=deleteBook(book)>delete</a>
+                </th>
+            </tr>
+    </tbody>
+</table>

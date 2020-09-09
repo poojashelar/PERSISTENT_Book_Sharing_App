@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+    <a class="navbar-brand" [routerLink]="['/']">Books Sharing App</a>
+    <div>
+        <div *ngIf="isAuthenticated; then doSomething; else doSomethingElse;"></div>
+        <ng-template #doSomething>
+            <!-- You logged in <em>{{user.email}}!</em> -->
+            <button class="btn btn-primary" (click)="logOut()">Log out</button>
+        </ng-template>
+        <ng-template #doSomethingElse>
+            <a [routerLink]="['/log-in']" class="btn btn-primary">Log in</a>
+            <a [routerLink]="['/sign-up']" class="btn btn-primary">Sign up</a>
+        </ng-template>
+    </div>
+</nav>

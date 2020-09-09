@@ -1,0 +1,19 @@
+<h3>Add Books</h3>
+<form [formGroup]="bookForm" (submit)="createBook()" class="form-inline mb-4">
+    <label class="sr-only" for="Name">Name</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="name" placeholder="Name">
+    </div>
+
+    <label class="sr-only" for="Description">Description</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="description" placeholder="Description">
+    </div>
+
+    <label class="sr-only" for="Category">Category</label>
+    <div class="input-group mb-2 mr-sm-2">
+        <input type="text" class="form-control" formControlName="category" placeholder="Category">
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-2">Add Book</button>
+</form>

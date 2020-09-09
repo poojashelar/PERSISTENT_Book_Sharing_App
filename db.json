@@ -1,0 +1,45 @@
+{
+  "Books": [
+    {
+      "name": "THE NATURE OF THINGS",
+      "description": " This is regarded as a seminal text of Epicurean science and philosophy.",
+      "category": "Science",
+      "id": 2
+    },
+    {
+      "name": "Mrityunjay",
+      "description": "Karna Story ",
+      "category": "Novel",
+      "id": 5
+    },
+    {
+      "name": "testBook",
+      "description": "test",
+      "category": "Art",
+      "id": 6
+    }
+  ],
+  "Users": [
+    {
+      "email": "test@gmail.com",
+      "password": "12345",
+      "token": "12345",
+      "id": 1
+    },
+    {
+      "email": "test123@test.com",
+      "password": "12132",
+      "id": 2
+    },
+    {
+      "email": "xyz@test.com",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "email": "testtt@xyz.com",
+      "password": "123",
+      "id": 4
+    }
+  ]
+}

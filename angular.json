@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Books-Sharing-App"
+    }
+  },
+  "defaultProject": "Books-Sharing-App",
+  "cli": {
+    "analytics": false
+  }
 }
