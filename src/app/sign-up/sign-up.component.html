@@ -7,7 +7,7 @@
                 {{errorMessage}}
             </div>
         </div>
-        <form (ngSubmit)="onSubmit()" ngNativeValidate>
+        <form (ngSubmit)="onSubmit()" class="form-margin" ngNativeValidate>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input [(ngModel)]="user.email" name="email" type="email" required class="form-control" id="email" placeholder="enter your email">

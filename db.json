@@ -14,32 +14,26 @@
     },
     {
       "name": "testBook",
-      "description": "test",
+      "description": "testbookss",
       "category": "Art",
       "id": 6
     }
   ],
-  "Users": [
+  "users": [
     {
-      "email": "test@gmail.com",
-      "password": "12345",
-      "token": "12345",
+      "email": "test123@test.com",
+      "password": "1234",
       "id": 1
     },
     {
-      "email": "test123@test.com",
-      "password": "12132",
+      "email": "testmail@gmail.com",
+      "password": "$2a$10$hnQ2IoGIltkOBSQ8QDsNpe8BjaOg1dsuXcRKWdXNUQdudXabZjply",
       "id": 2
     },
     {
-      "email": "xyz@test.com",
-      "password": "123",
+      "email": "test@gmail.com",
+      "password": "$2a$10$V1pkf1rIp3COPiF7l2.w3Oxwx424irQNYqW2xnob5m2cVm/GC4Z9S",
       "id": 3
-    },
-    {
-      "email": "testtt@xyz.com",
-      "password": "123",
-      "id": 4
     }
   ]
 }

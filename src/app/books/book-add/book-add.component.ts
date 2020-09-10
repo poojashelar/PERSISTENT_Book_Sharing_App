@@ -5,7 +5,6 @@ import * as bookActions from '../state/book.actions';
 import * as fromBook from '../state/book.reducer';
 import { Book } from '../book.model';
 
-
 @Component({
   selector: 'app-book-add',
   templateUrl: './book-add.component.html',
