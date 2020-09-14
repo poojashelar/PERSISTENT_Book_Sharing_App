@@ -1,14 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
-    <a class="navbar-brand" [routerLink]="['/']">Books Sharing App</a>
-    <div>
+<nav name="" class="navbar forTheme navbar-expand-lg navbar-dark bg-primary mb-5">
+    <a class="navbar-brand forTheme" [routerLink]="['/']">Books Sharing App</a>
+    <div class="menubar">
         <div *ngIf="isAuthenticated; then doSomething; else doSomethingElse;"></div>
         <ng-template #doSomething>
-            <!-- You logged in <em>{{user.email}}!</em> -->
-            <button class="btn btn-primary" (click)="logOut()">Log out</button>
+            <button class="btn forTheme btn-primary" (click)="logOut()">Log out</button>
         </ng-template>
         <ng-template #doSomethingElse>
-            <a [routerLink]="['/log-in']" class="btn btn-primary">Log in</a>
-            <a [routerLink]="['/sign-up']" class="btn btn-primary">Sign up</a>
+            <a [routerLink]="['/log-in']" class="btn forTheme btn-primary">Log in</a>
+            <a [routerLink]="['/sign-up']" class="btn forTheme btn-primary">Sign up</a>
         </ng-template>
+        Change Theme: <input type="checkbox" id="theme" (click)="changeTheme()">
     </div>
 </nav>

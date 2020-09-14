@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { User } from '../models/user';
-import { AppState, selectAuthState } from '../store/app.states';
+import { AppState, selectAuthState } from '../state/app.states';
 import { LogIn } from '../store/actions/auth.actions';
 
 @Component({
@@ -27,6 +27,15 @@ export class LogInComponent implements OnInit {
     this.getState.subscribe((state) => {
       this.errorMessage = state.errorMessage;
     });
+
+    const checkBoxValue = ( document.getElementById('theme') as HTMLInputElement).checked;
+    if (checkBoxValue) {
+      Array.from(document.getElementsByClassName('forTheme') as HTMLCollectionOf<HTMLElement>).forEach( ele => ele.style.backgroundColor = 'dimgray');
+      document.body.style.backgroundColor = 'lavender';
+    } else {
+      Array.from(document.getElementsByClassName('forTheme') as HTMLCollectionOf<HTMLElement>).forEach( ele => ele.style.backgroundColor = '#008cba');
+      document.body.style.backgroundColor = 'white';
+    }
   }
 
   onSubmit(): void {

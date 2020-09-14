@@ -8,15 +8,27 @@
     },
     {
       "name": "Mrityunjay",
-      "description": "Karna Story ",
+      "description": "Karna's Story of MAHABHARAT",
       "category": "Novel",
       "id": 5
     },
     {
-      "name": "testBook",
-      "description": "testbookss",
+      "name": "Art & Fear",
+      "description": "\"This is a book about making art. Ordinary art. Ordinary art means something like: all art not made by Mozart.",
       "category": "Art",
-      "id": 6
+      "id": 8
+    },
+    {
+      "name": "The Jungle Book",
+      "description": "The animals in this book show they are smarter than humans.\n\nAuthor: Kipling, Rudyard, 1865-1936",
+      "category": "Story",
+      "id": 9
+    },
+    {
+      "name": "test",
+      "description": "book",
+      "category": "assignment",
+      "id": 10
     }
   ],
   "users": [
@@ -34,6 +46,26 @@
       "email": "test@gmail.com",
       "password": "$2a$10$V1pkf1rIp3COPiF7l2.w3Oxwx424irQNYqW2xnob5m2cVm/GC4Z9S",
       "id": 3
+    },
+    {
+      "email": "xyz@test.com",
+      "password": "$2a$10$QDbwmeOL../JFMqlJuVcWO5X1uip5F4MsmuFTxiRebRyb0N5oifiO",
+      "id": 4
+    },
+    {
+      "email": "vx@gg",
+      "password": "$2a$10$ti/RymWT2wEgYJbVb1aN6uwYqg6g.9YVlB8BdjMMV3tAADIF7zVhG",
+      "id": 5
+    },
+    {
+      "email": "sd@gg.com",
+      "password": "$2a$10$H.k2IWsIF1aRkKxTxyuhaOYPhy0AIaVBxNGhxPjfZ8c./dOuv6LQm",
+      "id": 6
+    },
+    {
+      "email": "cc@kk.com",
+      "password": "$2a$10$APteAioPfwfwMFn8gP1IkOoU8MXaHiRMtGIyHwSIwija/pPV9is0q",
+      "id": 7
     }
   ]
 }

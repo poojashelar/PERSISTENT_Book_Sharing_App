@@ -1,0 +1,36 @@
+<div class="row">
+    <div *ngIf="this.id; then doSomething; else doSomethingElse;"></div>
+    <ng-template #doSomething>
+        <h1>Edit Book</h1>
+    </ng-template>
+    <ng-template #doSomethingElse>
+        <h1>Add Book</h1>
+    </ng-template>
+
+    <form [formGroup]="bookForm" class="form-inline form-margin mb-4">
+        <div class="form-group">
+            <label class="sr-only" for="Name">Name</label>
+            <input type="text" class="form-control" formControlName="name" placeholder="Name">
+        </div>
+
+        <div class="form-group">
+            <label class="sr-only" for="Description">Description</label>
+            <textarea class="form-control textlines" formControlName="description" placeholder="Description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="sr-only" for="Category">Category</label>
+            <input type="text" class="form-control" formControlName="category" placeholder="Category">
+        </div>
+
+        <div *ngIf="this.id; then updateButton; else addButton;"></div>
+        <ng-template #updateButton>
+            <button (click)="updateBook()" class="btn btn-primary mb-2 forTheme">Update Book</button>
+        </ng-template>
+        <ng-template #addButton>
+            <button (click)="createBook()" class="btn btn-primary mb-2 forTheme">Add Book</button>
+        </ng-template>
+
+        <a [routerLink]="['/']" class="btn btn-success">Cancel</a>
+    </form>
+</div>

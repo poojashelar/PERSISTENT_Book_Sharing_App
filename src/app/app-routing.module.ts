@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
 import { BookComponent } from './books/book/book.component';
+import { BookFormComponent } from './books/book-form/book-form.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent },
-    {path: 'books',
-   loadChildren: () => import('../app/books/books.module').then(mod => mod.BooksModule)
-     //'./src/app/books/books.module#BooksModule'
-    }
+  {path: '', redirectTo: 'books', pathMatch:'full'},
+  {path: 'books', component: BookComponent },
+  {path: 'book-form', component: BookFormComponent, pathMatch: 'full'},
+  // {path: 'book-form/:bookId', component: BookFormComponent}
+  //  loadChildren: () => import('../app/books/books.module').then(mod => mod.BooksModule)
+  //    //'./src/app/books/books.module#BooksModule'
+  //   }
 ];
 
 @NgModule({

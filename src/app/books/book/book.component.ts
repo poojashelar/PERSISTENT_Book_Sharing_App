@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AppState, selectAuthState } from '../../store/app.states';
+import { AppState, selectAuthState } from '../../state/app.states';
 import { Store } from '@ngrx/store';
 
 @Component({

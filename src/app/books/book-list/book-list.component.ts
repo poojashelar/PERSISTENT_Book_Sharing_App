@@ -1,46 +1,72 @@
-import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import * as bookActions from '../state/book.actions';
+import * as bookActions from '../../store/actions/book.actions';
 
-import * as fromBook from '../state/book.reducer';
-import { AppState, selectAuthState } from '../../store/app.states';
-import { Book } from '../book.model';
+import { AppState, selectAuthState } from '../../state/app.states';
+import { Book } from '../../models/book.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-export class BookListComponent implements OnInit {
-books$: Observable<Book[]>;
+export class BookListComponent implements OnInit, AfterViewInit {
+books: [];
 error$: Observable<string>;
 getState: Observable<any>;
 isAuthenticated = false;
 
-  constructor(private store: Store<fromBook.AppState>, private userStore: Store<AppState>) {
-    this.getState = this.userStore.select(selectAuthState);
+  constructor( private store: Store<AppState>, private router: Router) {
+    this.getState = this.store.select(selectAuthState);
   }
 
   ngOnInit(): void {
     this.store.dispatch(bookActions.loadBooks());
-    this.books$ = this.store.pipe(select(fromBook.getBooks));
-    this.error$ = this.store.pipe(select(fromBook.getError));
+    this.store.subscribe(data => {
+     this.books = data.book.books;
+    });
     this.getState.subscribe((state) => {
       this.isAuthenticated = state.isAuthenticated;
     });
-  }
-
-  deleteBook(book: Book): void {
-    if (confirm('Are You Sure You want to Delete the Book?')) {
-      const id  = book.id;
-      this.store.dispatch(bookActions.deleteBook({id}));
+    const checkBoxValue = ( document.getElementById('theme') as HTMLInputElement).checked;
+    if (checkBoxValue) {
+      Array.from(document.getElementsByClassName('forTheme') as HTMLCollectionOf<HTMLElement>).forEach( ele => ele.style.backgroundColor = 'dimgray');
+      document.body.style.backgroundColor = 'lavender';
+    } else {
+      Array.from(document.getElementsByClassName('forTheme') as HTMLCollectionOf<HTMLElement>).forEach( ele => ele.style.backgroundColor = '#008cba');
+      document.body.style.backgroundColor = 'white';
     }
   }
 
+  ngAfterViewInit(): void {
+    const checkBoxValue = ( document.getElementById('theme') as HTMLInputElement).checked;
+    if (checkBoxValue) {
+      Array.from(document.getElementsByClassName('forTheme') as HTMLCollectionOf<HTMLElement>).forEach( ele => ele.style.backgroundColor = 'dimgray');
+      document.body.style.backgroundColor = 'lavender';
+    } else {
+      Array.from(document.getElementsByClassName('forTheme') as HTMLCollectionOf<HTMLElement>).forEach( ele => ele.style.backgroundColor = '#008cba');
+      document.body.style.backgroundColor = 'white';
+    }
+  }
+
+  deleteBook(book: Book): void {
+    if (confirm('Are you sure you want to Delete the Book?')) {
+      const id  = book.id;
+      this.store.dispatch(bookActions.deleteBook({id}));
+      this.store.dispatch(bookActions.loadBooks());
+      this.store.subscribe(data => {
+        this.books = data.book.books;
+       });
+    }
+  }
+  addBook(): void {
+    this.router.navigate(['/book-form']);
+  }
   editBook(book: Book): void {
     const payload  = book.id;
-    this.store.dispatch(bookActions.loadBook({payload}));
+    this.router.navigate(['/book-form', {id: payload}]);
   }
 
 }
